@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 1;
+      }
+    </style>
+  </defs>
+  <path id="fb_icon" data-name="fb icon" class="cls-1" d="M1249,12a18,18,0,1,0,18,18A18,18,0,0,0,1249,12Zm0,33.187A15.187,15.187,0,1,1,1264.19,30,15.188,15.188,0,0,1,1249,45.187Zm4.27-17.943h-3.13V24.959a0.964,0.964,0,0,1,1.06-.863h2.03V21.012L1250.91,21a3.558,3.558,0,0,0-3.89,3.774v2.471h-2.29v3.177h2.29V39h3.12V30.422h2.65Z" transform="translate(-1231 -12)"/>
+</svg>
