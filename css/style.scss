@@ -30,7 +30,10 @@ body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.6rem;
 }
-
+.container {
+	max-width: 128rem;
+	margin: 0 auto;
+}
 .btn {
 	background-color: var(--btn-color);
 	font-size: 2.2rem;
@@ -438,7 +441,7 @@ body {
 					}
 				}
 				.slide-ink {
-					width: 90rem;
+					width: 80rem;
 					height: auto;
 					transform: translateX(-28%) rotate(160deg);
 				}
@@ -446,13 +449,24 @@ body {
 		}
 	}
 	//SLIKY
+	.slick-prev {
+		left: 2rem;
+		transform: translateY(-4rem);
+		z-index: 999;
+	}
+	.slick-next {
+		right: 9rem;
+		transform: translateY(-4rem);
+		z-index: 999;
+	}
+
 	.slick-list {
 		overflow: visible;
 	}
 	.slick-prev:before,
 	.slick-next:before {
 		font-size: 90px;
-		display: none;
+		// display: none;
 	}
 	.slick-prev:before {
 		transform: translateY(-200%) !important;
@@ -486,6 +500,7 @@ body {
 		.form-container {
 			grid-template-columns: 1fr 1fr;
 			width: 72.5%;
+			max-width: 92.8rem;
 			.input-group {
 				input,
 				select {

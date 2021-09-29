@@ -30,6 +30,11 @@ body {
   font-size: 1.6rem;
 }
 
+.container {
+  max-width: 128rem;
+  margin: 0 auto;
+}
+
 .btn {
   background-color: var(--btn-color);
   font-size: 2.2rem;
@@ -485,10 +490,22 @@ body {
     font-size: 4rem;
   }
   .hero-container .slider-container .slide .slide-ink {
-    width: 90rem;
+    width: 80rem;
     height: auto;
     -webkit-transform: translateX(-28%) rotate(160deg);
             transform: translateX(-28%) rotate(160deg);
+  }
+  .slick-prev {
+    left: 2rem;
+    -webkit-transform: translateY(-4rem);
+            transform: translateY(-4rem);
+    z-index: 999;
+  }
+  .slick-next {
+    right: 9rem;
+    -webkit-transform: translateY(-4rem);
+            transform: translateY(-4rem);
+    z-index: 999;
   }
   .slick-list {
     overflow: visible;
@@ -496,7 +513,6 @@ body {
   .slick-prev:before,
   .slick-next:before {
     font-size: 90px;
-    display: none;
   }
   .slick-prev:before {
     -webkit-transform: translateY(-200%) !important;
@@ -521,6 +537,7 @@ body {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
     width: 72.5%;
+    max-width: 92.8rem;
   }
   .form .form-container .col-full {
     -ms-grid-column: 1;
