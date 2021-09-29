@@ -5,8 +5,14 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Test</title>
+
+		<!-- Sliky Slider -->
+		<link rel="stylesheet" type="text/css" href="./css/frameworks/slick.css" />
+		<link rel="stylesheet" type="text/css" href="./css/frameworks/slick-theme.css" />
+		<!-- FONTAWSOME -->
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+		<!-- STYLE  -->
 		<link rel="stylesheet" href="./css/style.css" />
-		<!-- <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" /> -->
 	</head>
 	<body>
 		<header>
@@ -16,7 +22,41 @@
 				<img class="facebook-img" src="./assets/fb_icon.svg" alt="fb-icon" />
 			</div>
 		</header>
-		<section id="hero" class="hero"></section>
+		<section id="hero" class="hero-container">
+			<button class="btn" type="submit" form="mainForm">Comprar</button>
+			<div class="slider-container">
+				<div class="slide">
+					<div class="slide-info">
+						<div class="text-container">
+							<span class="text-small">Product</span>
+							<span class="text-big">One</span>
+						</div>
+						<div class="price-container">
+							<div class="price-complete">
+								<span class="dollar">U$$</span>
+								<span class="price">149<sup class="price-superindex">.50</sup><sub class="price-subindex">/mes</sub></span>
+							</div>
+							<img class="slide-ink" src="./assets/ink1.svg" alt="ink1" />
+						</div>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="slide-info">
+						<div class="text-container">
+							<span class="text-small">Product</span>
+							<span class="text-big">Two</span>
+						</div>
+						<div class="price-container">
+							<div class="price-complete">
+								<span class="dollar">U$$</span>
+								<span class="price">99<sup class="price-superindex">.50</sup><sub class="price-subindex">/mes</sub></span>
+							</div>
+							<img class="slide-ink" src="./assets/ink1.svg" alt="ink1" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 		<main class="container">
 			<h2 class="products-title">Últimos Artículos</h2>
 			<section class="products-container">
@@ -72,52 +112,61 @@
 			<section class="form">
 				<h2 class="form-title">Formulario</h2>
 
-				<form class="form-container" method="POST">
+				<form id="mainForm" class="form-container" method="POST">
 					<div class="input-group">
-						<input class="input--style" type="text" placeholder="Nombre" name="name" />
+						<input class="input-text" type="text" name="name" required />
+						<span class="floating-label">Nombre</span>
 					</div>
 					<div class="input-group">
-						<input class="input--style" type="text" placeholder="Apellido" name="surname" />
+						<input class="input-text" type="text" name="surname" required />
+						<span class="floating-label">Apellido</span>
 					</div>
 					<div class="input-group col-full">
-						<input class="input--style" type="email" placeholder="e-Mail" name="email" />
+						<input class="input-text" type="email" name="email" required />
+						<span class="floating-label">e-Mail</span>
 					</div>
 
-					<div class="col-6">
-						<div class="input-group">
-							<div class="rs-select2 js-select-simple select--no-search">
-								<select name="state">
-									<option value="0" disabled="disabled" selected="selected">Departamento</option>
-									<option value="1">Artigas</option>
-									<option value="2">Canelones</option>
-									<option value="3">Montevideo</option>
-									<option value="4">Salto</option>
-								</select>
-							</div>
+					<div class="input-group">
+						<div class="select-container">
+							<!-- <span class="floating-label">Departamento</span> -->
+							<select name="state">
+								<option value="0" disabled="disabled" selected="selected">Depertamento</option>
+								<option value="1">Artigas</option>
+								<option value="2">Canelones</option>
+								<option value="3">Montevideo</option>
+								<option value="4">Salto</option>
+							</select>
 						</div>
 					</div>
-					<div class="col-6">
-						<div class="input-group">
-							<div class="rs-select2 js-select-simple select--no-search">
-								<select name="locality">
-									<option value="0" disabled="disabled" selected="selected">Localidad</option>
-									<option value="1">Artigas</option>
-									<option value="2">Bella Unión</option>
-								</select>
-							</div>
+
+					<div class="input-group">
+						<div class="select-container">
+							<!-- <span class="floating-label">Localidad</span> -->
+							<select name="locality">
+								<option value="0" disabled="disabled" selected="selected">Localidad</option>
+								<option value="1">Artigas</option>
+								<option value="2">Bella Unión</option>
+							</select>
 						</div>
 					</div>
-					<div class="input-group col-6">
-						<input class="input--style" type="number" placeholder="C.I." name="email" />
+
+					<div class="input-group">
+						<input class="input-text" type="number" name="CI" required />
+						<span class="floating-label">C.I.</span>
 					</div>
 					<div class="checkbox">
 						<input class="checkbox-box" type="checkbox" id="basesAndConditions" name="BasesAndCond" value="ok" />
 						<label class="checkbox-text" for="basesAndCond"> Acepto las bases y condiciones</label>
 					</div>
-					<input class="btn" type="submit" />
+					<!-- <input class="btn" type="submit" /> -->
 				</form>
+				<button class="btn" type="submit" form="mainForm">Enviar</button>
 			</section>
 		</main>
 		<footer></footer>
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="./js/frameworks/slick.min.js"></script>
+		<script type="text/javascript" src="./js/app.js"></script>
 	</body>
 </html>
