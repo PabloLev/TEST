@@ -12,6 +12,7 @@
 	--form-text: #666666;
 	--form-border: #aaaaaa;
 	--btn-color: #4da6e4;
+	--warning-text: #dd4444;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -401,6 +402,7 @@ a {
 			display: flex;
 			align-items: center;
 			justify-content: flex-start;
+			position: relative;
 			input,
 			select {
 				border: 1px solid var(--form-border);
@@ -461,9 +463,12 @@ a {
 				font-weight: 300;
 				color: var(--form-text);
 			}
+
 			.input-text:focus-visible {
 				outline: none;
 			}
+
+			.input-text:not(:placeholder-shown) ~ .floating-label,
 			.input-text:focus-visible ~ .floating-label,
 			.input-text:not(:focus):valid ~ .floating-label,
 			.input-text:focus:invalid ~ .floating-label {
@@ -473,7 +478,27 @@ a {
 				text-transform: uppercase;
 			}
 			.input-text:focus-visible,
-			.input-text:not(:focus):valid {
+			.input-text:not(:focus):valid,
+			.input-text:not(:placeholder-shown) {
+				padding: 2.8rem 2rem 0.4rem;
+			}
+			.select-text {
+				font-size: 2.2rem;
+				line-height: 2.2rem;
+				font-weight: 300;
+				color: var(--form-text);
+			}
+			.select-text:focus-visible {
+				outline: none;
+			}
+			.select-text:valid ~ .floating-label {
+				transform: translateY(-1.5rem);
+				font-size: 1.4rem;
+				opacity: 0.7;
+				text-transform: uppercase;
+			}
+			.select-text:focus-visible,
+			.select-text:not(:focus):valid {
 				padding: 2.8rem 2rem 0.4rem;
 			}
 			.floating-label {
@@ -484,6 +509,12 @@ a {
 				pointer-events: none;
 				margin-left: calc(2rem + 2px);
 				transition: 0.2s ease all;
+			}
+			.warning-text {
+				position: absolute;
+				top: 100%;
+				font-weight: 300;
+				color: var(--warning-text);
 			}
 		}
 		.checkbox {

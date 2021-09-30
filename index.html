@@ -116,45 +116,41 @@
 
 				<form id="mainForm" class="form-container" method="POST">
 					<div class="input-group">
-						<input id="name" class="input-text" type="text" name="name" required />
-						<span class="floating-label">Nombre</span>
+						<input id="name" class="input-text" type="text" name="name" placeholder=" " required />
+						<label class="floating-label">Nombre</label>
 					</div>
 					<div class="input-group">
-						<input id="surname" class="input-text" type="text" name="surname" required />
-						<span class="floating-label">Apellido</span>
+						<input id="surname" class="input-text" type="text" name="surname" placeholder=" " required />
+						<label class="floating-label">Apellido</label>
 					</div>
 					<div class="input-group col-full">
-						<input id="email" class="input-text" type="email" name="email" required />
-						<span class="floating-label">e-Mail</span>
+						<input id="email" class="input-text" type="email" name="email" value="" placeholder=" " required />
+						<label class="floating-label">e-Mail</label>
 					</div>
 
 					<div class="input-group">
 						<div class="select-container">
 							<!-- <span class="floating-label">Departamento</span> -->
-							<select name="state">
-								<option value="0" disabled="disabled" selected="selected">Departamento</option>
-								<option value="1">Artigas</option>
-								<option value="2">Canelones</option>
-								<option value="3">Montevideo</option>
-								<option value="4">Salto</option>
+							<select id="state" class="select-text" name="state" required>
+								<option value="" disabled="disabled" selected="selected"></option>
 							</select>
+							<label class="floating-label">Departamento</label>
 						</div>
 					</div>
 
 					<div class="input-group">
 						<div class="select-container">
 							<!-- <span class="floating-label">Localidad</span> -->
-							<select name="locality">
-								<option value="0" disabled="disabled" selected="selected">Localidad</option>
-								<option value="1">Artigas</option>
-								<option value="2">Bella Unión</option>
+							<select id="locality" class="select-text" name="locality" required>
+								<option value="" disabled="disabled" selected="selected"></option>
 							</select>
+							<label class="floating-label">Localidad</label>
 						</div>
 					</div>
 
 					<div class="input-group">
-						<input id="ci" class="input-text" type="text" name="CI" required />
-						<span class="floating-label">C.I.</span>
+						<input id="ci" class="input-text" type="text" name="CI" placeholder=" " required />
+						<label class="floating-label">C.I.</label>
 					</div>
 					<div class="checkbox" required>
 						<input id="checkboxBases" class="checkbox-box" type="checkbox" name="BasesAndCond" value="ok" required />
