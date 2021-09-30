@@ -116,15 +116,15 @@
 
 				<form id="mainForm" class="form-container" method="POST">
 					<div class="input-group">
-						<input class="input-text" type="text" name="name" required />
+						<input id="name" class="input-text" type="text" name="name" required />
 						<span class="floating-label">Nombre</span>
 					</div>
 					<div class="input-group">
-						<input class="input-text" type="text" name="surname" required />
+						<input id="surname" class="input-text" type="text" name="surname" required />
 						<span class="floating-label">Apellido</span>
 					</div>
 					<div class="input-group col-full">
-						<input class="input-text" type="email" name="email" required />
+						<input id="email" class="input-text" type="email" name="email" required />
 						<span class="floating-label">e-Mail</span>
 					</div>
 
@@ -153,19 +153,18 @@
 					</div>
 
 					<div class="input-group">
-						<input class="input-text" type="number" name="CI" required />
+						<input id="ci" class="input-text" type="text" name="CI" required />
 						<span class="floating-label">C.I.</span>
 					</div>
-					<div class="checkbox">
-						<input class="checkbox-box" type="checkbox" id="basesAndConditions" name="BasesAndCond" value="ok" />
+					<div class="checkbox" required>
+						<input id="checkboxBases" class="checkbox-box" type="checkbox" name="BasesAndCond" value="ok" required />
 						<label class="checkbox-text" for="basesAndCond"> Acepto las bases y condiciones</label>
 					</div>
 					<!-- <input class="btn" type="submit" /> -->
 				</form>
-				<button class="btn" type="submit" form="mainForm">Enviar</button>
+				<button id="submitBtn" class="btn" type="submit" form="mainForm">Enviar</button>
 			</section>
 		</main>
-		<footer></footer>
 		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 		<script type="text/javascript" src="./js/frameworks/slick.min.js"></script>
