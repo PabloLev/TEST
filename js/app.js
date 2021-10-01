@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
 					message = 'Debe tener al menos dos caracteres';
 					break;
 				case email:
-					message = 'Formato xxx@xxxx.com';
+					message = 'Formato xxx@xxxx.xx';
 					break;
 				case state:
 					message = 'Seleccione el Departamento';
@@ -90,18 +90,41 @@ window.addEventListener('DOMContentLoaded', (e) => {
 	}
 	function validation(element) {
 		const theEmail = email.value;
-		if (element === checkboxBases && !element.checked) {
-			redBorder(element);
-			return false;
-		} else {
-			if (!validateEmail(theEmail) || !element.value || (element.value.length < 2 && element.value <= 0)) {
+		console.log(element.value);
+
+		switch (true) {
+			case element === checkboxBases && !element.checked:
 				redBorder(element);
-				return false;
-			} else {
+				break;
+			case element === email && !validateEmail(theEmail):
+				redBorder(element);
+				break;
+			case (element === name && element.value.length < 2) || (element === surname && element.value.length < 2):
+				redBorder(element);
+				break;
+			case element === state && element.value == '':
+				redBorder(element);
+				break;
+			case element === locality && element.value == '':
+				redBorder(element);
+				break;
+			default:
 				removeRedBorder(element);
-				return true;
-			}
+				break;
 		}
+
+		// if (element === checkboxBases && !element.checked) {
+		// 	redBorder(element);
+		// 	return false;
+		// } else {
+		// 	if (!validateEmail(theEmail) || !element.value || (element.value.length < 2 && element.value == 888)) {
+		// 		redBorder(element);
+		// 		return false;
+		// 	} else {
+		// 		removeRedBorder(element);
+		// 		return true;
+		// 	}
+		// }
 	}
 
 	function checkForm() {
@@ -180,21 +203,17 @@ window.addEventListener('DOMContentLoaded', (e) => {
 			removeWarningText(element);
 		}
 	}
-	// function localityLoader(state) {
-	// 	dptosLocs.state.forEach((e) => {
-	// 		let createOption = document.createElement('option');
-	// 		createOption.innerHTML += `
-	// 			${e}`;
-	// 		append.appendChild(createOption);
-	// 	});
-	// }
-	function emptyFromDom(empty) {
-		while (empty.firstChild) {
-			empty.removeChild(empty.firstChild);
+
+	//Borra elementos del DOM
+	function clearSelect(empty) {
+		while (empty.childNodes.length > 2) {
+			empty.removeChild(empty.lastChild);
 		}
 	}
-	function selectedState(append) {
-		emptyFromDom(locality);
+
+	//Selección de departamento
+	function selectedState(toAppend) {
+		clearSelect(locality);
 		let stateVal = state.value;
 		switch (stateVal) {
 			case '1':
@@ -202,7 +221,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
 					let createOption = document.createElement('option');
 					createOption.innerHTML += `
 						${e}`;
-					append.appendChild(createOption);
+					toAppend.appendChild(createOption);
 				});
 				break;
 			case '2':
@@ -210,7 +229,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
 					let createOption = document.createElement('option');
 					createOption.innerHTML += `
 						${e}`;
-					append.appendChild(createOption);
+					toAppend.appendChild(createOption);
 				});
 				break;
 			case '3':
@@ -218,7 +237,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
 					let createOption = document.createElement('option');
 					createOption.innerHTML += `
 						${e}`;
-					append.appendChild(createOption);
+					toAppend.appendChild(createOption);
 				});
 				break;
 			case '4':
@@ -226,38 +245,41 @@ window.addEventListener('DOMContentLoaded', (e) => {
 					let createOption = document.createElement('option');
 					createOption.innerHTML += `
 						${e}`;
-					append.appendChild(createOption);
+					toAppend.appendChild(createOption);
 				});
 				break;
 			default:
-				dptosLocs.Canelones.forEach((e) => {
-					let createOption = document.createElement('option');
-					createOption.innerHTML += `
-						seleccione departamento`;
+				// console.log('default');
+				// let createOption = document.createElement('option');
+				// createOption.innerHTML += `Seleccione un departamento`;
+				// toAppend.appendChild(createOption);
 
-					append.appendChild(createOption);
-				});
 				break;
 		}
 	}
-	function loadStates(append) {
+
+	//Carga los departamentos
+	function loadStates(toAppend) {
 		for (const prop in dptosLocs) {
 			let i = parseInt(Object.keys(dptosLocs).indexOf(prop) + 1);
 			let createOption = document.createElement('option');
 			createOption.innerHTML += `
 					${prop}`;
-			append.appendChild(createOption);
+			toAppend.appendChild(createOption);
 			createOption.setAttribute('value', i);
 		}
 	}
 	loadStates(state);
+	form.addEventListener('change', (e) => {
+		let element = e.target;
+		if (element.value !== '' && element.id == 'state') {
+			selectedState(locality);
+		}
+	});
+
+	//Agrega evento
 	form.addEventListener('click', (e) => {
 		let element = e.target;
-		// selectedState();
-		if (element.id === 'locality') {
-			console.log(element.id);
-			selectedState(element);
-		}
 		if (element.type !== 'checkbox') {
 			if (element.tagName == 'INPUT' || element.tagName == 'SELECT') {
 				e.preventDefault();
@@ -267,6 +289,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
 			inFocus(element);
 		}
 	});
+
+	//Agrega evento al botón de submit
 	submitButton.addEventListener('click', (e) => {
 		e.preventDefault();
 		validation(name);
